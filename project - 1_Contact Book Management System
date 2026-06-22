@@ -1,0 +1,67 @@
+# Q1 : Create a mini contact book:
+# Menu:
+# 1. Add Contact
+# 2. Search Contact
+# 3. Delete Contact
+# 4. Show All Contacts
+# 5. Exit
+# Use dictionaries to store names and phone numbers.
+
+contact = {}
+
+while True:
+    print("\n============= CONTACT BOOK ===============")
+    print("1. Add Contact")
+    print("2. Search Contact")
+    print("3. Delete Contact")
+    print("4. Show All Contact")
+    print("5. Exit")
+
+    
+    choice = input("\nEnter the choice (1-5): ")
+
+    if choice == "1":
+        name = input("\nEnter the name: ")
+        phone_number = input("Enter the number:")
+
+        contact[name] = phone_number
+
+        print("\nContact successfully added!")
+        
+    elif choice == "2":
+        name = input("\nEnter the name to search:")
+        if name in contact:
+
+            print("Contact successfully found:-")
+            print("Phone number:",contact[name])
+        else:
+            print("\nContact not found")    
+
+    elif choice == "3":
+        name = input("\nEnter name to delete the contact:")
+        if name in contact:
+            del contact[name]
+
+            print("\nContact successfully deleted")
+
+        else:
+            print("\nContact not found")
+
+    elif choice == "4":
+        if contact:
+            
+            print("\nAll contact:")
+            for name,phone_number in contact.items():
+                print(name, ":" , phone_number)
+
+        else: 
+            print("\nNo contact available")
+                  
+    elif choice == "5":
+        print("\nExiting contact book...")
+        print("Thankyou for using it")
+        
+        break
+
+    else:
+      print("\nInvalid choice! Choice between 1 and 5.")
